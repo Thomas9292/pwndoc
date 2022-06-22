@@ -7,11 +7,12 @@ services:
       - ./backend/mongo-data:/data/db
     restart: always
     ports:
-      - 127.0.0.1:27017:27017
+      - 127.0.0.1:10182:27017
     environment:
       - MONGO_DB:pwndoc
     networks:
       - backend
+    command: mongod --port 10182
 
   pwndoc-backend:
     build: ./backend
